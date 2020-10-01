@@ -6,10 +6,16 @@ const db = config.get('mongoURI');
 const connectDB = async () => {
 	try {
 		// Connect to DB
-		mongoose.connect(db);
+		await mongoose.connect(db, {
+			useNewUrlParser: true, // Parses URL String
+			useUnifiedTopology: true, // Server Monitor Engine
+		});
 		console.log('MongoDB Connected');
 	} catch (err) {
 		console.error(err.message);
-		process.exit(1); // Exit process with failure
+		// Exit process with failure
+		process.exit(1);
 	}
 };
+
+module.exports = connectDB;
