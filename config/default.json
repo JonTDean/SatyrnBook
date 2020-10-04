@@ -1,4 +1,6 @@
 {
 	"mongoURI": "mongodb+srv://jon:KingT1203@mern.qc2t5.mongodb.net/MERN?retryWrites=true&w=majority",
-	"jwtSecret": "dean"
+	"jwtSecret": "dean",
+	"githubClientId": "faf6c40e36d73ffc1257",
+	"githubSecret": "ed4d31579e1580db5158cc32bc1e0e360805b85a"
 }
