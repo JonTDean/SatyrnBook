@@ -8,18 +8,28 @@
 
 ## Documentation
 
-### Backend
+#### Backend
 
-API Documentation:
+API:
 
 1.  Users & Auth
+
     Link: https://documenter.getpostman.com/view/11934869/TVRg6pFy
 
 2.  Profile
+
     Link: https://documenter.getpostman.com/view/11934869/TVRg6pFx
 
 3.  Posts
+
     Link: https://documenter.getpostman.com/view/11934869/TVRg6p2d
+
+Schema: 
+
+
+#### Frontend
+
+API
 
 ## Technologies Used
 
