@@ -7,7 +7,7 @@ const config = require('config');
 const { check, validationResult } = require('express-validator');
 // %Global-Variables
 const router = express.Router();
-const User = require('../../model/User'); // Model
+const User = require('../../models/User'); // Model
 
 // @Route   POST api/users
 // @Desc    Register User

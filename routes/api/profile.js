@@ -7,8 +7,8 @@ const request = require('request');
 const config = require('config');
 
 // %Schemas
-const Profile = require('../../model/Profile');
-const User = require('../../model/User');
+const Profile = require('../../models/Profile');
+const User = require('../../models/User');
 
 // @Route   GET api/profile/me
 // @Desc    Get Users Profile

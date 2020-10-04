@@ -8,7 +8,7 @@ const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
 
 // %Global-Variables
-const User = require('../../model/User');
+const User = require('../../models/User');
 
 // @Route   GET api/auth
 // @Desc    Authorize User
