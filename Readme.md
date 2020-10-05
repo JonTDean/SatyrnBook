@@ -68,3 +68,13 @@ Link: https://documenter.getpostman.com/view/11934869/TVRg6p2d
 ### Frontend
 
 API:
+
+## Links
+
+### MaterialUI / Styling
+
+    * https://material-ui.com/getting-started/faq/
+
+    * https://stackoverflow.com/questions/47268652/jss-how-to-change-opacity-for-a-color?rq=1
+
+### React

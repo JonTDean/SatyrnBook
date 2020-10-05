@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// %Imports
+import React, { Fragment } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// %Styling
+import './css/main.css';
+import Grid from '@material-ui/core/Grid';
 
+// %Components
+import Navbar from './Components/Layout/Navbar';
+import Landing from './Components/Layout/Landing';
+
+const App = () => (
+	<Fragment>
+		<Navbar />
+		<Grid
+			container
+			spacing={0}
+			direction="column"
+			alignItems="center"
+			justify="center"
+			style={{ minHeight: '70vh' }}
+		>
+			<Landing />
+		</Grid>
+	</Fragment>
+);
 export default App;
