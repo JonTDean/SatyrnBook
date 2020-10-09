@@ -1,30 +1,47 @@
 // %Imports
 import React from 'react';
-
+import { Link as RouterLink } from 'react-router-dom';
 // %Styling
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import { ThemeProvider } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import { bodyStyle, landingStyle } from '../themes/Styles';
 // %Components
-import { mainTheme } from '../themes/Themes';
-import { bodyStyle } from '../themes/Styles';
 
 const Landing = () => {
 	return (
-		<ThemeProvider theme={mainTheme}>
-			<Grid container direction="column" justify="center" alignItems="center">
-				<h1 className={bodyStyle().header_Primary}>
+		<Paper className={landingStyle().paperContainer}>
+			<Grid
+				container
+				direction="column"
+				justify="center"
+				alignItems="center"
+				style={{ height: '110vh' }}
+			>
+				<h1 className={bodyStyle().header_Secondary}>
 					Learn and Share Knowledge with the World!
 				</h1>
-				<p className={bodyStyle().paragraph_Primary}>
+				<p className={bodyStyle().paragraph_Secondary}>
 					Learn at <b>your</b> level, at <b>your own</b> pace!
 				</p>
 				<div className={bodyStyle().div_Main}>
-					<Button className={bodyStyle().button_Primary}>Register</Button>
-					<Button className={bodyStyle().button_Primary}>Login</Button>
+					<Button
+						className={bodyStyle().button_Primary}
+						component={RouterLink}
+						to="/Register"
+					>
+						Register
+					</Button>
+					<Button
+						className={bodyStyle().button_Primary}
+						component={RouterLink}
+						to="/Login"
+					>
+						Login
+					</Button>
 				</div>
 			</Grid>
-		</ThemeProvider>
+		</Paper>
 	);
 };
 

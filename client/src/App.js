@@ -1,26 +1,29 @@
 // %Imports
-import React, { Fragment } from 'react';
-import { ThemeProvider } from '@material-ui/core/styles';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 // %Styling
-import Grid from '@material-ui/core/Grid';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { mainTheme } from './Components/themes/Themes';
 // %Components
-import Navbar from './Components/Layout/Navbar';
+import Navbar from './Components/Layout/Navbar/Navbar';
 import Landing from './Components/Layout/Landing';
+import Register from './Components/Auth/Register/Register';
+import Login from './Components/Auth/Login/Login';
 
 const App = () => (
-	<Fragment>
-		{/* <img src={require('./Assets/Pictures/pexels-photo-4261793.jpeg')} /> */}
-		<Navbar />
-		<Grid
-			container
-			spacing={0}
-			direction="column"
-			alignItems="center"
-			justify="center"
-			style={{ minHeight: '70vh' }}
-		>
-			<Landing />
-		</Grid>
-	</Fragment>
+	<Provider store={store}>
+		<ThemeProvider theme={mainTheme}>
+			<Router>
+				<Navbar />
+				<Switch>
+					<Route exact path="/" component={Landing} />
+					<Route exact path="/register" component={Register} />
+					<Route exact path="/login" component={Login} />
+				</Switch>
+			</Router>
+		</ThemeProvider>
+	</Provider>
 );
 export default App;

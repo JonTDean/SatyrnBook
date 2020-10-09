@@ -5,7 +5,6 @@ import { mainTheme } from './Themes';
 // %Styling
 import 'fontsource-montserrat/500-normal.css';
 import 'fontsource-neuton/300.css';
-import blue from '@material-ui/core/colors/blue';
 
 // // Navbar
 export const navStyle = makeStyles((theme) => ({
@@ -23,7 +22,11 @@ export const navStyle = makeStyles((theme) => ({
 		alignItems: 'center',
 	},
 	navBar: {
+		postion: 'static',
 		background: fade(mainTheme.palette.secondary.main, 0.5),
+		borderRadius: 2,
+		margin: 20,
+		width: '98%',
 	},
 }));
 
@@ -39,7 +42,6 @@ export const bodyStyle = makeStyles((theme) => ({
 		color: mainTheme.palette.primary.contrastText,
 		fontFamily: 'Montserrat',
 		fontSize: 30,
-		margin: 0,
 	},
 	paragraph_Primary: {
 		color: mainTheme.palette.primary.contrastText,
@@ -60,13 +62,18 @@ export const bodyStyle = makeStyles((theme) => ({
 	// Secondary Color Scheme
 	header_Secondary: {
 		color: mainTheme.palette.secondary.contrastText,
-		backgroundColor: mainTheme.palette.secondary.light,
 		fontFamily: 'Montserrat',
 		fontSize: 30,
+		backgroundColor: fade(mainTheme.palette.secondary.dark, 0.5),
+		borderRadius: 3,
+		padding: 16,
+		marginRight: 3,
 	},
 	paragraph_Secondary: {
 		color: mainTheme.palette.secondary.contrastText,
-		backgroundColor: mainTheme.palette.secondary.light,
+		backgroundColor: fade(mainTheme.palette.secondary.dark, 0.5),
+		borderRadius: 3,
+		padding: 6,
 		fontFamily: 'neuton',
 		fontSize: 20,
 	},
@@ -82,8 +89,81 @@ export const bodyStyle = makeStyles((theme) => ({
 	},
 }));
 
-export const canvasStyle = makeStyles((theme) => ({
-	body_Main: {
-		color: blue[400],
+export const landingStyle = makeStyles((theme) => ({
+	paperContainer: {
+		backgroundImage: `url(${require('../../Assets/Pictures/pexels-photo-4261793.jpeg')})`,
+		backgroundRepeat: 'no-repeat',
+		backgroundPosition: 'center center',
+		backgroundAttachment: 'fixed',
+		display: 'static',
+		backgroundSize: 'cover',
+		height: '100vh',
+		overflow: 'hidden',
+	},
+}));
+
+export const formStyle = makeStyles((theme) => ({
+	formContainer: {
+		textAlign: 'center',
+		maxWidth: '75%',
+		minWidth: '25%',
+		padding: '3em',
+		marginTop: '3em',
+	},
+	form: {
+		postion: 'absolute',
+		display: 'flex',
+		flexDirection: 'column',
+		flexFlow: 'column wrap',
+		maxWidth: '75%',
+		minWidth: '25%',
+		padding: '3em',
+	},
+	inputField: {
+		color: mainTheme.palette.secondary.contrastText,
+		fontFamily: 'Montserrat',
+		fontSize: '30px',
+	},
+	button: {
+		fontSize: 15,
+		fontFamily: 'neuton',
+		background: mainTheme.palette.secondary.main,
+		boxRadius: 3,
+		marginTop: 50,
+		margin: 5,
+	},
+}));
+
+export const formInput = {
+	style: {
+		fontFamily: 'Montserrat',
+	},
+};
+
+export const buttonCollapserStyle = makeStyles((theme) => ({
+	buttonCollapse: {
+		[theme.breakpoints.up('sm')]: {
+			display: 'none',
+		},
+		margin: '10px',
+		boxShadow: 'none',
+	},
+}));
+
+export const barCollapserStyle = makeStyles((theme) => ({
+	root: {
+		position: 'absolute',
+		right: 0,
+	},
+	buttonBar: {
+		[theme.breakpoints.down('xs')]: {
+			display: 'none',
+		},
+		margin: '10px',
+		paddingLeft: '16px',
+		right: 0,
+		position: 'relative',
+		width: '100%',
+		background: 'transparent',
 	},
 }));
