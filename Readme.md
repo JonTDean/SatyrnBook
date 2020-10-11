@@ -8,7 +8,13 @@
 
 ### Frontend To-Do
 
-- [ ] Refactor the NavBar, it keeps shifting to the right once it hits (sub)1200px width
+NAVBAR:
+
+- [x] Refactor the NavBar, it keeps shifting to the right once it hits (sub)1200px width
+
+- [ ] Add a hamburger menu to the NavBar, once it hits a specific measurement, switch the navbar to xs stylization.
+
+COMPONENTS:
 
 - [ ] Refactor the forms at '/register' and '/login' they look ugly and the styling should be done
 
