@@ -16,7 +16,9 @@ NAVBAR:
 
 COMPONENTS:
 
-- [ ] Refactor the forms at '/register' and '/login' they look ugly and the styling should be done
+- [x] Refactor the forms at '/register' and '/login' they look ugly and the styling should be done
+
+- [ ] I have a lot of reusable code in the form of hooks, I can make several custom hooks and use those in the place of what is currently in use.
 
 ---
 
