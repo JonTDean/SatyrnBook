@@ -1,12 +1,18 @@
 // %Imports
 import React, { useState } from 'react';
-import Link from 'react-router-dom/Link';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 // %Styling
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import { formStyle } from '../../themes/Styles';
+// %Components
+import LoginForm from './LoginForm';
+import DynamicAlert from '../../Layout/Modals/Alert';
+import { Login as loginAuth } from '../../../redux/actions/auth';
 
-const Register = () => {
+const Login = ({ loginAuth, isAuthenticated }) => {
 	const [formData, setFormData] = useState({
 		email: '',
 		password: '',
@@ -17,48 +23,49 @@ const Register = () => {
 	const handleChange = (e) =>
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 
-	const onSubmit = async (e) => {
+	const onLogin = async (e) => {
 		e.preventDefault();
-		console.log('Success!');
+
+		// Sends a POST request to login USER
+		loginAuth(email, password);
 	};
+
 	return (
 		<Grid
 			container
 			direction="column"
 			justify="center"
 			alignItems="center"
-			style={{ height: '60vh' }}
+			style={{ height: '100vh' }}
+			className={formStyle().formFieldBody}
 		>
-			<h1>Login</h1>
-			<form noValidate autoComplete="off" onSubmit={onSubmit}>
-				{/* Email Input Field*/}
-				<TextField
-					id="email"
-					name="email"
-					label="Email"
-					color="primary"
-					helperText="Please fill out your e-mail address."
-					value={email}
-					onChange={handleChange}
-				/>
-				{/* Password Input Field */}
-				<TextField
-					id="password"
-					name="password"
-					label="Password"
-					color="primary"
-					helperText="Please type your password."
-					value={password}
-					onChange={handleChange}
-				/>
-				<Button type="submit">Login</Button>
-			</form>
+			<Paper className={formStyle().formContainer} elevation={10}>
+				<h1 style={{ fontFamily: 'Montserrat' }}>Login</h1>
 
-			<p>
-				Don't have an account? Register <Link to="/register">Here!</Link>
-			</p>
+				<LoginForm
+					email={email}
+					password={password}
+					handleChange={handleChange}
+					onLogin={onLogin}
+					authorized={isAuthenticated}
+				/>
+
+				<p style={{ fontFamily: 'Montserrat' }}>
+					Don't have an account? Register <Link to="/register">Here!</Link>
+				</p>
+				<DynamicAlert />
+			</Paper>
 		</Grid>
 	);
 };
 
-export default Register;
+Login.propTypes = {
+	loginAuth: PropTypes.func.isRequired,
+	isAuthenticated: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+	isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { loginAuth })(Login);

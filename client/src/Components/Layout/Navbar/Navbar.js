@@ -1,58 +1,50 @@
 // %Imports
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 // %Styling
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Box from '@material-ui/core/Box';
 import DonutSmallTwoToneIcon from '@material-ui/icons/DonutSmallTwoTone';
-import Button from '@material-ui/core/Button';
 // %Components
 import { navStyle } from '../../themes/Styles';
+import { Logout } from '../../../redux/actions/auth';
+import GuestNavBar from './NavBarTypes/GuestNavBar';
+import UserNavBar from './NavBarTypes/UserNavBar';
 
-const Navbar = () => {
+const Navbar = ({ auth: { isAuthenticated, loading }, Logout }) => {
 	return (
 		<AppBar className={navStyle().navBar}>
 			<Toolbar className={navStyle().navLayout}>
 				<IconButton
 					edge="start"
 					color="inherit"
-					aria-label="menu"
+					aria-label="home"
 					component={RouterLink}
 					to="/"
 				>
 					<DonutSmallTwoToneIcon />
 				</IconButton>
-				<Box>
-					<Button
-						className={navStyle().title}
-						color="inherit"
-						component={RouterLink}
-						to="/"
-					>
-						Learners
-					</Button>
-					<Button
-						className={navStyle().title}
-						color="inherit"
-						component={RouterLink}
-						to="/Register"
-					>
-						Register
-					</Button>
-					<Button
-						className={navStyle().title}
-						color="inherit"
-						component={RouterLink}
-						to="/Login"
-					>
-						Login
-					</Button>
-				</Box>
+				{!loading && (
+					<>
+						{isAuthenticated ? <UserNavBar Logout={Logout} /> : <GuestNavBar />}
+					</>
+				)}
 			</Toolbar>
 		</AppBar>
 	);
 };
 
-export default Navbar;
+Navbar.propTypes = {
+	Logout: PropTypes.func.isRequired,
+	auth: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+	auth: state.auth,
+});
+
+export default connect(mapStateToProps, { Logout })(Navbar);

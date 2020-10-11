@@ -1,18 +1,23 @@
 // %Imports
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 // %Styling
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { formStyle, formInput } from '../../themes/Styles';
 
-export const RegisterForms = ({
+export const RegisterForm = ({
 	name,
 	email,
 	password,
 	passwordConfirm,
 	onRegister,
 	handleChange,
+	authorized,
 }) => {
+	// Redirect if logged in
+	if (authorized) return <Redirect to="/" />;
+
 	return (
 		<form
 			noValidate
@@ -99,4 +104,4 @@ export const RegisterForms = ({
 	);
 };
 
-export default RegisterForms;
+export default RegisterForm;

@@ -1,14 +1,22 @@
-# MERN Social-Dev
+# MERN VenysBook
 
 ## To-Do
 
+### Backend To-Do
+
 - [ ] Refactor The Backend once Finished, separate each of the Route 'router.HTTP_REQ' via SRD (The Single Responsiblity Design Pattern)
+
+### Frontend To-Do
+
+- [ ] Refactor the NavBar, it keeps shifting to the right once it hits (sub)1200px width
+
+- [ ] Refactor the forms at '/register' and '/login' they look ugly and the styling should be done
 
 ---
 
 ## Summary
 
-The MERN Social-Dev site is a pet project in order to utilize React and Express in a developmental Setting.
+The MERN VenysBook site is a pet project in order to utilize React and Express in a developmental Setting.
 
 ---
 

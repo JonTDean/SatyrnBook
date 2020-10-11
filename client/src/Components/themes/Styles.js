@@ -103,6 +103,16 @@ export const landingStyle = makeStyles((theme) => ({
 }));
 
 export const formStyle = makeStyles((theme) => ({
+	formFieldBody: {
+		backgroundImage: `url(${require('../../Assets/Pictures/adriano-pucciarelli-E_hJVT2fSac-unsplash.jpg')})`,
+		backgroundRepeat: 'no-repeat',
+		backgroundPosition: 'center center',
+		backgroundAttachment: 'fixed',
+		display: 'static',
+		backgroundSize: 'cover',
+		height: '100vh',
+		overflow: 'hidden',
+	},
 	formContainer: {
 		textAlign: 'center',
 		maxWidth: '75%',
@@ -127,7 +137,7 @@ export const formStyle = makeStyles((theme) => ({
 	button: {
 		fontSize: 15,
 		fontFamily: 'neuton',
-		background: mainTheme.palette.secondary.main,
+		background: mainTheme.palette.secondary.light,
 		boxRadius: 3,
 		marginTop: 50,
 		margin: 5,

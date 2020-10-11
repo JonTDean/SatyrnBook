@@ -1,6 +1,6 @@
 // %Imports
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setAlert } from '../../../redux/actions/alert';
@@ -11,9 +11,9 @@ import Paper from '@material-ui/core/Paper';
 import { formStyle } from '../../themes/Styles';
 // %Components
 import DynamicAlert from '../../Layout/Modals/Alert';
-import RegisterForms from './RegisterForms';
+import RegisterForm from './RegisterForms';
 
-const Register = ({ setAlert, registerAuth }) => {
+const Register = ({ setAlert, registerAuth, isAuthenticated }) => {
 	const [formData, setFormData] = useState({
 		email: '',
 		name: '',
@@ -45,29 +45,31 @@ const Register = ({ setAlert, registerAuth }) => {
 			justify="center"
 			alignItems="center"
 			style={{ height: '100vh' }}
+			className={formStyle().formFieldBody}
 		>
 			<Paper className={formStyle().formContainer} elevation={10}>
 				{/* Header */}
 				<h1 style={{ fontFamily: 'Montserrat' }}>Register</h1>
 
 				{/* Form */}
-				<RegisterForms
+				<RegisterForm
 					email={email}
 					name={name}
 					password={password}
 					passwordConfirm={passwordConfirm}
 					handleChange={handleChange}
 					onRegister={onRegister}
+					authorized={isAuthenticated}
 				/>
 
 				{/* Footer */}
-				<p>
+				<p style={{ fontFamily: 'Montserrat' }}>
 					Already have an account? Login <Link to="/login">Here!</Link>
 				</p>
-			</Paper>
 
-			{/* Alerts System */}
-			<DynamicAlert />
+				{/* Alerts System */}
+				<DynamicAlert />
+			</Paper>
 		</Grid>
 	);
 };
@@ -75,6 +77,11 @@ const Register = ({ setAlert, registerAuth }) => {
 Register.propTypes = {
 	setAlert: PropTypes.func.isRequired,
 	registerAuth: PropTypes.func.isRequired,
+	isAuthenticated: PropTypes.bool,
 };
 
-export default connect(null, { setAlert, registerAuth })(Register);
+const mapStateToProps = (state) => ({
+	isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { setAlert, registerAuth })(Register);

@@ -1,5 +1,5 @@
 {
-	"name": "mern_social-dev",
+	"name": "mern_venys_book",
 	"version": "1.0.0",
 	"description": "Social Network for Developers",
 	"main": "server.js",
@@ -12,6 +12,7 @@
 	"author": "Jonathan T. Dean",
 	"license": "MIT",
 	"dependencies": {
+		"@material-ui/lab": "^4.0.0-alpha.56",
 		"bcryptjs": "^2.4.3",
 		"config": "^3.3.2",
 		"express": "^4.17.1",
