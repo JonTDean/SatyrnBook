@@ -14,9 +14,8 @@ export const LoginForm = ({
 	onLogin,
 	authorized,
 }) => {
-	
 	// Redirect if logged in
-	if (authorized) return <Redirect to="/" />;
+	if (authorized) return <Redirect to="/dashboard" />;
 
 	return (
 		<form

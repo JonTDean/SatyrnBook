@@ -1,6 +1,8 @@
 // %Imports
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 // %Styling
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -8,7 +10,9 @@ import Paper from '@material-ui/core/Paper';
 import { bodyStyle, landingStyle } from '../themes/Styles';
 // %Components
 
-const Landing = () => {
+const Landing = ({ isAuthenticated }) => {
+	if (isAuthenticated) return <Redirect to="/dashboard" />;
+
 	return (
 		<Paper className={landingStyle().paperContainer}>
 			<Grid
@@ -45,4 +49,12 @@ const Landing = () => {
 	);
 };
 
-export default Landing;
+Landing.propTypes = {
+	isAuthenticated: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+	isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps)(Landing);

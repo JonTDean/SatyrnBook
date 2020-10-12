@@ -41,6 +41,9 @@ export const Register = ({ name, email, password }) => async (dispatch) => {
 		},
 	};
 
+	// FrontEnd Security to lower-case all incoming e-mail data
+	const fixedEmail = email.toLowerCase();
+
 	const body = JSON.stringify({ name, email, password });
 
 	try {
@@ -66,12 +69,16 @@ export const Register = ({ name, email, password }) => async (dispatch) => {
 };
 
 // Login User
-export const Login = (email, password) => async (dispatch) => {
+export const Login = (incomingEmail, password) => async (dispatch) => {
 	const config = {
 		headers: {
 			'Content-Type': 'application/json',
 		},
 	};
+
+	// FrontEnd Security to lower-case all incoming e-mail data
+	const email = incomingEmail.toLowerCase();
+	// console.log(email);
 
 	const body = JSON.stringify({ email, password });
 
