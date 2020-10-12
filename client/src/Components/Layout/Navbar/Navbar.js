@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Box from '@material-ui/core/Box';
 import DonutSmallTwoToneIcon from '@material-ui/icons/DonutSmallTwoTone';
 // %Components
 import { navStyle } from '../../themes/Styles';

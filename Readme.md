@@ -24,13 +24,11 @@ COMPONENTS:
 
 ## Summary
 
-The MERN VenysBook site is a pet project in order to utilize React and Express in a developmental Setting.
+MERN VenysBook site is a pet project in order to utilize React and Express in a developmental Setting.
 
 ---
 
 ## Documentation
-
-Documentation for the site
 
 ### Backend
 

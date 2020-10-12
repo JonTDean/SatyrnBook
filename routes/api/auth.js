@@ -6,7 +6,6 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
-
 // %Global-Variables
 const User = require('../../models/User');
 
@@ -14,6 +13,10 @@ const User = require('../../models/User');
 // @Desc    Authorize User
 // @access  Public
 router.get('/', auth, async (req, res) => {
+	// console.log('RESPONSE: ', res);
+	console.log('REQUEST: ', req);
+	console.log('REQUESTED USER: ', req.user);
+
 	try {
 		const user = await User.findById(req.user.id).select('-password');
 		res.json(user);
@@ -63,7 +66,9 @@ router.post(
 
 			// !Check	Return JSONWebToken
 			const payload = {
-				user: user.id,
+				user: {
+					id: user.id,
+				},
 			};
 
 			// Sign the user.id into an encrypted token
@@ -78,6 +83,7 @@ router.post(
 			);
 		} catch (err) {
 			console.error(err);
+			res.status(500).send('Server error');
 		}
 	}
 );

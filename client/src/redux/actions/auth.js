@@ -34,7 +34,9 @@ export const loadUser = () => async (dispatch) => {
 };
 
 // Register User
-export const Register = ({ name, email, password }) => async (dispatch) => {
+export const Register = ({ name, incomingEmail, password }) => async (
+	dispatch
+) => {
 	const config = {
 		headers: {
 			'Content-Type': 'application/json',
@@ -42,7 +44,7 @@ export const Register = ({ name, email, password }) => async (dispatch) => {
 	};
 
 	// FrontEnd Security to lower-case all incoming e-mail data
-	const fixedEmail = email.toLowerCase();
+	const email = incomingEmail.toLowerCase();
 
 	const body = JSON.stringify({ name, email, password });
 
@@ -85,6 +87,7 @@ export const Login = (incomingEmail, password) => async (dispatch) => {
 	try {
 		const res = await axios.post('/api/auth', body, config);
 
+		
 		dispatch({
 			type: LOGIN_SUCCESS,
 			payload: res.data,
