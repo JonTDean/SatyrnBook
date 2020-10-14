@@ -17,12 +17,12 @@ import Login from './Components/Auth/Login/Login';
 import Dashboard from './Components/Dashboard/Dashboard';
 import PrivateRoute from './Components/routing/PrivateRoute';
 
-if (localStorage.token) {
-	setAuthToken(localStorage.token);
-}
-
 const App = () => {
 	useEffect(() => {
+		if (localStorage.token) {
+			setAuthToken(localStorage.token);
+		}
+
 		store.dispatch(loadUser());
 	}, []);
 

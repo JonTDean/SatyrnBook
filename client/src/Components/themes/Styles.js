@@ -136,7 +136,7 @@ export const formStyle = makeStyles((theme) => ({
 	},
 	button: {
 		fontSize: 15,
-		fontFamily: 'neuton',
+		fontFamily: 'Montserrat',
 		background: mainTheme.palette.secondary.light,
 		boxRadius: 3,
 		marginTop: 50,

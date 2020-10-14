@@ -14,8 +14,8 @@ const User = require('../../models/User');
 // @access  Public
 router.get('/', auth, async (req, res) => {
 	// console.log('RESPONSE: ', res);
-	console.log('REQUEST: ', req);
-	console.log('REQUESTED USER: ', req.user);
+	// console.log('REQUEST: ', req);
+	// console.log('REQUESTED USER: ', req.user);
 
 	try {
 		const user = await User.findById(req.user.id).select('-password');
@@ -65,6 +65,10 @@ router.post(
 			}
 
 			// !Check	Return JSONWebToken
+			// I had an error going on here.
+			// The payload was returning the User object as the user.id
+			// What was supposed to happen was the user object gets its
+			// ID set by Object user.id
 			const payload = {
 				user: {
 					id: user.id,

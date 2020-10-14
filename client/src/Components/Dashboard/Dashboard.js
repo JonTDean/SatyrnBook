@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // %Styling
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Grid from '@material-ui/core/Grid';
 // %Components
 import { getCurrentProfile } from '../../redux/actions/profile';
+import UserBoard from './UserBoard';
 
 const Dashboard = ({
 	getCurrentProfile,
@@ -14,12 +16,20 @@ const Dashboard = ({
 }) => {
 	useEffect(() => {
 		getCurrentProfile();
-	}, []);
+	}, [getCurrentProfile]);
 
 	return loading && profile == null ? (
-		<CircularProgress />
+		<Grid
+			container
+			direction="column"
+			justify="center"
+			alignItems="center"
+			style={{ height: '110vh' }}
+		>
+			<CircularProgress />
+		</Grid>
 	) : (
-		<Fragment> Welcome {user && user.name} </Fragment>
+		<UserBoard name={user && user.name} profile={profile} />
 	);
 };
 

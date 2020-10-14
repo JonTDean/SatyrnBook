@@ -9,6 +9,7 @@ import {
 	USER_LOADED,
 	AUTH_ERROR,
 	LOGOUT,
+	CLEAR_PROFILE,
 } from './types';
 import { setAlert } from './alert';
 import setAuthToken from '../utils/setAuthToken';
@@ -34,9 +35,7 @@ export const loadUser = () => async (dispatch) => {
 };
 
 // Register User
-export const Register = ({ name, incomingEmail, password }) => async (
-	dispatch
-) => {
+export const Register = ({ name, email, password }) => async (dispatch) => {
 	const config = {
 		headers: {
 			'Content-Type': 'application/json',
@@ -44,7 +43,7 @@ export const Register = ({ name, incomingEmail, password }) => async (
 	};
 
 	// FrontEnd Security to lower-case all incoming e-mail data
-	const email = incomingEmail.toLowerCase();
+	email = email.toLowerCase();
 
 	const body = JSON.stringify({ name, email, password });
 
@@ -71,7 +70,7 @@ export const Register = ({ name, incomingEmail, password }) => async (
 };
 
 // Login User
-export const Login = (incomingEmail, password) => async (dispatch) => {
+export const Login = (email, password) => async (dispatch) => {
 	const config = {
 		headers: {
 			'Content-Type': 'application/json',
@@ -79,7 +78,7 @@ export const Login = (incomingEmail, password) => async (dispatch) => {
 	};
 
 	// FrontEnd Security to lower-case all incoming e-mail data
-	const email = incomingEmail.toLowerCase();
+	email = email.toLowerCase();
 	// console.log(email);
 
 	const body = JSON.stringify({ email, password });
@@ -87,7 +86,6 @@ export const Login = (incomingEmail, password) => async (dispatch) => {
 	try {
 		const res = await axios.post('/api/auth', body, config);
 
-		
 		dispatch({
 			type: LOGIN_SUCCESS,
 			payload: res.data,
@@ -108,4 +106,7 @@ export const Login = (incomingEmail, password) => async (dispatch) => {
 };
 
 // Logs the User out
-export const Logout = () => (dispatch) => dispatch({ type: LOGOUT });
+export const Logout = () => (dispatch) => {
+	dispatch({ type: CLEAR_PROFILE });
+	dispatch({ type: LOGOUT });
+};
