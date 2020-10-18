@@ -10,12 +10,13 @@ import store from './store';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { mainTheme } from './Components/themes/Themes';
 // %Components
+import PrivateRoute from './Components/routing/PrivateRoute';
 import Navbar from './Components/Layout/Navbar/Navbar';
 import Landing from './Components/Layout/Landing';
 import Register from './Components/Auth/Register/Register';
 import Login from './Components/Auth/Login/Login';
 import Dashboard from './Components/Dashboard/Dashboard';
-import PrivateRoute from './Components/routing/PrivateRoute';
+import CreateForm from './Components/Dashboard/DashboardParts/FormParts/CreateForm';
 
 const App = () => {
 	useEffect(() => {
@@ -33,9 +34,14 @@ const App = () => {
 					<Navbar />
 					<Switch>
 						<Route exact path="/" component={Landing} />
-						<Route exact path="/register" component={Register} />
-						<Route exact path="/login" component={Login} />
-						<PrivateRoute exact path="/dashboard" component={Dashboard} />
+						<Route exact path="/Register" component={Register} />
+						<Route exact path="/Login" component={Login} />
+						<PrivateRoute
+							exact
+							path="/Profile/Dashboard"
+							component={Dashboard}
+						/>
+						<PrivateRoute exact path="/Profile/Create" component={CreateForm} />
 					</Switch>
 				</Router>
 			</ThemeProvider>

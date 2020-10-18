@@ -25,8 +25,11 @@ export const navStyle = makeStyles((theme) => ({
 		postion: 'static',
 		background: fade(mainTheme.palette.secondary.main, 0.5),
 		borderRadius: 2,
-		margin: 20,
-		width: '98%',
+		marginTop: 20,
+		marginRight: 20,
+		marginLeft: 20,
+		// margin: 20,
+		width: '90%',
 	},
 }));
 
@@ -117,22 +120,46 @@ export const formStyle = makeStyles((theme) => ({
 		textAlign: 'center',
 		maxWidth: '75%',
 		minWidth: '25%',
+		padding: '1em',
+	},
+	formContainerAlt: {
+		maxWidth: '75%',
+		minWidth: '25%',
 		padding: '3em',
-		marginTop: '3em',
+		marginTop: '6em',
+		paddingBottom: '1em',
+		marginBottom: '1em',
 	},
 	form: {
-		postion: 'absolute',
+		// postion: 'absolute',
 		display: 'flex',
 		flexDirection: 'column',
 		flexFlow: 'column wrap',
 		maxWidth: '75%',
 		minWidth: '25%',
-		padding: '3em',
+		paddingLeft: '3em',
+		paddingRight: '3em',
+	},
+	formDiv: {
+		maxHeight: '100%',
+		minHeight: '50%',
+		maxWidth: '100%',
+		minWidth: '50%',
+		marginBottom: '1em',
 	},
 	inputField: {
 		color: mainTheme.palette.secondary.contrastText,
 		fontFamily: 'Montserrat',
 		fontSize: '30px',
+	},
+	textField: {
+		color: mainTheme.palette.secondary.contrastText,
+		height: '100%',
+		width: '100%',
+		fontFamily: 'Montserrat',
+		fontSize: '30px',
+		padding: '1em',
+		margin: '3em',
 	},
 	button: {
 		fontSize: 15,
@@ -142,9 +169,24 @@ export const formStyle = makeStyles((theme) => ({
 		marginTop: 50,
 		margin: 5,
 	},
+	buttonAlt: {
+		fontSize: 15,
+		fontFamily: 'Montserrat',
+		background: mainTheme.palette.secondary.light,
+		boxRadius: 3,
+		padding: '2em',
+		marginBottom: '3em',
+		marginTop: '2em',
+	},
 }));
 
 export const formInput = {
+	style: {
+		fontFamily: 'Montserrat',
+	},
+};
+
+export const formInputAlt = {
 	style: {
 		fontFamily: 'Montserrat',
 	},

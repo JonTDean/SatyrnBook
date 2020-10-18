@@ -3,6 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
+// Components
+import CenteredSpinner from '../Utils/CenteredSpinner';
 
 const PrivateRoute = ({
 	component: Component,
@@ -12,10 +14,12 @@ const PrivateRoute = ({
 	<Route
 		{...rest}
 		render={(props) =>
-			!isAuthenticated && !loading ? (
-				<Redirect to="/login" />
-			) : (
+			loading ? (
+				<CenteredSpinner />
+			) : isAuthenticated ? (
 				<Component {...props} />
+			) : (
+				<Redirect to="/login" />
 			)
 		}
 	/>

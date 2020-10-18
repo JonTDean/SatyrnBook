@@ -64,7 +64,7 @@ const Register = ({ setAlert, registerAuth, isAuthenticated }) => {
 
 				{/* Footer */}
 				<p style={{ fontFamily: 'Montserrat' }}>
-					Already have an account? Login <Link to="/login">Here!</Link>
+					Already have an account? Login <Link to="/Login">Here!</Link>
 				</p>
 
 				{/* Alerts System */}

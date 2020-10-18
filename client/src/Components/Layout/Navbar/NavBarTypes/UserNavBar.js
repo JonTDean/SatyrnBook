@@ -15,7 +15,7 @@ const UserNavBar = ({ Logout }) => {
 				className={navStyle().title}
 				aria-label="Dashboard"
 				component={RouterLink}
-				to="/dashboard"
+				to="/Profile/Dashboard"
 			>
 				<AmpStoriesIcon alt="Dashboard" />
 				Dashboard

@@ -11,7 +11,7 @@ import { bodyStyle, landingStyle } from '../themes/Styles';
 // %Components
 
 const Landing = ({ isAuthenticated }) => {
-	if (isAuthenticated) return <Redirect to="/dashboard" />;
+	if (isAuthenticated) return <Redirect to="/Profile/Dashboard" />;
 
 	return (
 		<Paper className={landingStyle().paperContainer}>

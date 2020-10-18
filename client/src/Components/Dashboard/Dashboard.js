@@ -1,35 +1,62 @@
 // %Imports
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// %Styling
-import CircularProgress from '@material-ui/core/CircularProgress';
-import Grid from '@material-ui/core/Grid';
-// %Components
 import { getCurrentProfile } from '../../redux/actions/profile';
-import UserBoard from './UserBoard';
+import { Link as RouterLink } from 'react-router-dom';
+// %Styling
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import { formStyle, navStyle } from '../themes/Styles';
+// %Components
+import DashboardActions from './DashboardParts/DashboardActions';
+import Alert from '../Layout/Modals/Alert';
 
 const Dashboard = ({
 	getCurrentProfile,
 	auth: { user },
-	profile: { profile, loading },
+	profile: { profile },
 }) => {
 	useEffect(() => {
 		getCurrentProfile();
 	}, [getCurrentProfile]);
 
-	return loading && profile == null ? (
+	return (
 		<Grid
 			container
 			direction="column"
 			justify="center"
 			alignItems="center"
-			style={{ height: '110vh' }}
+			style={{ height: '90vh' }}
 		>
-			<CircularProgress />
+			<Paper className={formStyle().formContainer} elevation={5}>
+				<h1 className={navStyle().title}>Dashboard</h1>
+				<p className={navStyle().title}>Welcome, {user && user.name}</p>
+				{profile !== null ? (
+					<>
+						<DashboardActions />
+					</>
+				) : (
+					<>
+						<p className={navStyle().title}>
+							You do not have a Profile, let's create one.
+						</p>
+						<Button
+							edge="start"
+							color="inherit"
+							aria-label="home"
+							component={RouterLink}
+							className={formStyle().button}
+							to="/Profile/Create"
+						>
+							Create Profile
+						</Button>
+					</>
+				)}
+			</Paper>
+			<Alert />
 		</Grid>
-	) : (
-		<UserBoard name={user && user.name} profile={profile} />
 	);
 };
 

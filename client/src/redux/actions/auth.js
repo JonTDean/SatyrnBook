@@ -16,10 +16,6 @@ import setAuthToken from '../utils/setAuthToken';
 
 // Load User
 export const loadUser = () => async (dispatch) => {
-	if (localStorage.token) {
-		setAuthToken(localStorage.token);
-	}
-
 	try {
 		const res = await axios.get('/api/auth/');
 
@@ -45,6 +41,8 @@ export const Register = ({ name, email, password }) => async (dispatch) => {
 	// FrontEnd Security to lower-case all incoming e-mail data
 	email = email.toLowerCase();
 
+	// Convert incoming Variables to an object
+	// Serves the Variable -> 'body' to the Response
 	const body = JSON.stringify({ name, email, password });
 
 	try {
@@ -81,6 +79,8 @@ export const Login = (email, password) => async (dispatch) => {
 	email = email.toLowerCase();
 	// console.log(email);
 
+	// Convert incoming Variables to an object
+	// Serves the Variable -> 'body' to the Response
 	const body = JSON.stringify({ email, password });
 
 	try {
