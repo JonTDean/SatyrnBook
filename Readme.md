@@ -1,5 +1,42 @@
 # MERN VenysBook
 
+## Technologies Used
+
+### Frontend:
+
+#### Structure
+
+- Node.js
+- React
+- React Scripts
+- React-Router-Dom
+- Redux
+- React-Redux
+- Redux Thunk [MiddleWare]
+- Redux Devtools
+- Axios
+- UUID
+
+#### Styling
+
+- Moment
+- MaterialUI
+- MaterialUI Icons
+- MaterialUI Pickers
+- fontsource [hind/montserrat/neuton]
+
+### Backend:
+
+#### Structure
+
+- ExpressJS
+- ExpressValidator (SS Validation)
+- Mongoose(ORM)
+- BCryptJS
+- JSONWebToken
+- Request
+- Gravatar (API for Gravatar Avatars)
+
 ## To-Do
 
 ### Backend To-Do
