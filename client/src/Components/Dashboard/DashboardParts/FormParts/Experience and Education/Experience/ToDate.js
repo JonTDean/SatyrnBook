@@ -11,7 +11,7 @@ const ToDate = ({ to, current, onChange, toDateDisabled, toggleDisabled }) => {
 				inputprops={formInputAlt}
 				inputlabelprops={formInputAlt}
 				id="to-field"
-				label="to"
+				label="To"
 				helperText="When did you stop work at this Company?"
 				className={formStyle().textField}
 				name="to"

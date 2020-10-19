@@ -11,7 +11,7 @@ const JobTitle = ({ title, onChange }) => {
 				inputprops={formInputAlt}
 				inputlabelprops={formInputAlt}
 				id="title-field"
-				label="title"
+				label="Title"
 				helperText="Please explain your Job Title."
 				className={formStyle().textField}
 				name="title"

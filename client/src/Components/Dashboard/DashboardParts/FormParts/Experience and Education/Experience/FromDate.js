@@ -5,6 +5,8 @@ import { formStyle, formInputAlt } from '../../../../../themes/Styles';
 import TextField from '@material-ui/core/TextField';
 
 const FromDate = ({ from, onChange }) => {
+	const [selectedDate, setSelectedDate] = React.useState(new Date());
+
 	return (
 		<div className={formStyle().formDiv}>
 			<TextField
