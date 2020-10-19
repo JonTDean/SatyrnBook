@@ -1,8 +1,10 @@
 // %Imports
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 // %Styling
 import { formStyle } from '../../../themes/Styles';
 import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 // %Components
 import {
 	Profession,
@@ -67,10 +69,21 @@ const FormInputs = ({
 			{/* User adds a description of themselves */}
 			<Bio bio={bio} onChange={onChange} />
 
-			{/* Submit Button */}
-			<Button type="submit" className={formStyle().buttonAlt}>
-				Submit
-			</Button>
+			<ButtonGroup style={{ justifyContent: 'center' }}>
+				{/* Submit Button */}
+				<Button type="submit" className={formStyle().button}>
+					Submit
+				</Button>
+
+				{/* Head back to the Dashboard */}
+				<Button
+					component={RouterLink}
+					className={formStyle().button}
+					to="/Profile/Dashboard"
+				>
+					Return to Dashboard
+				</Button>
+			</ButtonGroup>
 
 			{/* Alert for any errors */}
 			<DynamicAlert />

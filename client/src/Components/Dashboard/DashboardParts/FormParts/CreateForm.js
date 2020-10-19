@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 // %Styling
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -12,7 +12,7 @@ import FormInputs from './FormInputs';
 import { createProfile } from '../../../../redux/actions/profile';
 import DynamicAlert from '../../../Layout/Modals/Alert';
 
-const CreateForm = ({ setAlert, auth: { user }, createProfile, history }) => {
+const CreateForm = ({ auth: { user }, createProfile, history }) => {
 	// Drop down menu for Social Media.
 	const [displaySocialInputs, toggleSocialInputs] = useState(false);
 

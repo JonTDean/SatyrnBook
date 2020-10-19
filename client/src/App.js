@@ -17,6 +17,8 @@ import Register from './Components/Auth/Register/Register';
 import Login from './Components/Auth/Login/Login';
 import Dashboard from './Components/Dashboard/Dashboard';
 import CreateForm from './Components/Dashboard/DashboardParts/FormParts/CreateForm';
+import EditForm from './Components/Dashboard/DashboardParts/FormParts/EditForm';
+import ExperienceForm from './Components/Dashboard/DashboardParts/FormParts/Experience and Education/ExperienceForm'
 
 const App = () => {
 	useEffect(() => {
@@ -42,6 +44,16 @@ const App = () => {
 							component={Dashboard}
 						/>
 						<PrivateRoute exact path="/Profile/Create" component={CreateForm} />
+						<PrivateRoute
+							exact
+							path="/Profile/Edit"
+							component={EditForm}
+						/>
+						<PrivateRoute
+							exact
+							path="/Profile/Experience"
+							component={ExperienceForm}
+						/>
 					</Switch>
 				</Router>
 			</ThemeProvider>

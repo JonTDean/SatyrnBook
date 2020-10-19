@@ -8,13 +8,7 @@ import { formStyle } from '../../themes/Styles';
 
 const DashboardActions = () => {
 	return (
-		<Grid
-			container
-			direction="column"
-			justify="center"
-			alignItems="center"
-			style={{ height: '90vh' }}
-		>
+		<>
 				<Button
 					edge="start"
 					color="inherit"
@@ -47,7 +41,7 @@ const DashboardActions = () => {
 				>
 					Add Education
 				</Button>
-		</Grid>
+		</>
 	);
 };
 
