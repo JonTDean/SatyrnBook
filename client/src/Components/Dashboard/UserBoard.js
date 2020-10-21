@@ -18,8 +18,9 @@ const UserBoard = ({ name, profile }) => {
 			justify="center"
 			alignItems="center"
 			style={{ height: '90vh' }}
+			className={formStyle().formContainerAlt}
 		>
-			<Paper className={formStyle().formContainer} elevation={5}>
+			<Paper className={formStyle().formContainerAlt} elevation={5}>
 				<h1 className={navStyle().title}>Dashboard</h1>
 				<p className={navStyle().title}>Welcome, {name}</p>
 

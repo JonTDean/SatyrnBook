@@ -120,6 +120,20 @@ export const formStyle = makeStyles((theme) => ({
 		padding: '3em',
 		marginTop: '3em',
 	},
+	formContainerAlt: {
+		// backgroundImage: `url(${require('../../Assets/Pictures/george-bakos-uJScwN9riIM-unsplash.jpg')})`,
+		textAlign: 'center',
+		maxWidth: '75%',
+		minWidth: '25%',
+		padding: '3em',
+		marginTop: '3em',
+	},
+	gridBody: {
+		// backgroundImage: `url(${require('../../Assets/Pictures/george-bakos-uJScwN9riIM-unsplash.jpg')})`,
+		// backgroundRepeat: 'no-repeat',
+		// backgroundPosition: 'center center',
+		// backgroundAttachment: 'fixed',
+	},
 	form: {
 		postion: 'absolute',
 		display: 'flex',
