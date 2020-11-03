@@ -3,48 +3,26 @@ import React from 'react';
 // %Styling
 import { formStyle, formInputAlt } from '../../../../../themes/Styles';
 import TextField from '@material-ui/core/TextField';
-import DateFnsUtils from '@date-io/date-fns';
-import {
-	MuiPickersUtilsProvider,
-	KeyboardDatePicker,
-} from '@material-ui/pickers';
 
 const FromDate = ({ from, onChange }) => {
-	const [selectedDate, setSelectedDate] = React.useState(new Date());
-
+	// console.log('From Date:', from);
+	
 	return (
 		<div className={formStyle().formDiv}>
-			<MuiPickersUtilsProvider utils={DateFnsUtils}>
-				<KeyboardDatePicker
-					disableToolbar
-					inputprops={formInputAlt}
-					inputlabelprops={formInputAlt}
-					variant="inline"
-					format="MM/dd/yyyy"
-					margin="normal"
-					id="from-field"
-					label="From"
-					helperText="When did you begin work at this company?"
-					className={formStyle().textField}
-					name="from"
-					value={from}
-					onChange={onChange}
-					// KeyboardButtonProps={{
-					// 	'aria-label': 'change date',
-					// }}
-				/>
-			</MuiPickersUtilsProvider>
-			{/* <TextField
+			<TextField
+				className={formStyle().textField}
 				inputprops={formInputAlt}
 				inputlabelprops={formInputAlt}
-				id="from-field"
-				label="From"
-				helperText="When did you begin work at this company?"
-				className={formStyle().textField}
+				InputLabelProps={{
+					shrink: true,
+				}}
+				id="from"
 				name="from"
+				label="From"
+				type="date"
 				value={from}
 				onChange={onChange}
-			/> */}
+			/>
 		</div>
 	);
 };

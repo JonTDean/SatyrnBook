@@ -39,13 +39,9 @@ const CreateForm = ({ auth: { user }, createProfile, history }) => {
 		e.preventDefault();
 		createProfile(formData, history);
 	};
+
 	return (
-		<Grid
-			container
-			direction="column"
-			justify="center"
-			alignItems="center"
-		>
+		<Grid container direction="column" justify="center" alignItems="center">
 			<Paper className={formStyle().formContainerAlt} elevation={5}>
 				<h2 className={bodyStyle().header_Primary}>
 					Hey <i>{user && user.name}</i>, let's create your Profile
