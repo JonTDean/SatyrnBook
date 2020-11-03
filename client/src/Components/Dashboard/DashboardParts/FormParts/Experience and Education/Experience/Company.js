@@ -5,6 +5,8 @@ import { formStyle, formInputAlt } from '../../../../../themes/Styles';
 import TextField from '@material-ui/core/TextField';
 
 const Company = ({ company, onChange }) => {
+	console.log('Company:', company);
+
 	return (
 		<div className={formStyle().formDiv}>
 			<TextField

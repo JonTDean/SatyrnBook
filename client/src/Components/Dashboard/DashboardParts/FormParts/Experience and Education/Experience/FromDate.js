@@ -5,18 +5,21 @@ import { formStyle, formInputAlt } from '../../../../../themes/Styles';
 import TextField from '@material-ui/core/TextField';
 
 const FromDate = ({ from, onChange }) => {
-	const [selectedDate, setSelectedDate] = React.useState(new Date());
-
+	// console.log('From Date:', from);
+	
 	return (
 		<div className={formStyle().formDiv}>
 			<TextField
+				className={formStyle().textField}
 				inputprops={formInputAlt}
 				inputlabelprops={formInputAlt}
-				id="from-field"
-				label="From"
-				helperText="When did you begin work at this company?"
-				className={formStyle().textField}
+				InputLabelProps={{
+					shrink: true,
+				}}
+				id="from"
 				name="from"
+				label="From"
+				type="date"
 				value={from}
 				onChange={onChange}
 			/>
