@@ -10,7 +10,10 @@ import { formStyle, navStyle } from '../themes/Styles';
 // %Components
 import DashboardActions from './DashboardParts/DashboardActions';
 import NoProfile from './DashboardParts/NoProfile';
-import Alert from '../Layout/Modals/Alert';
+import Experience from './Experience';
+// import Education from './Education';
+import DynamicAlert from '../Layout/Modals/Alert';
+import Education from './Education';
 
 const Dashboard = ({
 	getCurrentProfile,
@@ -27,14 +30,23 @@ const Dashboard = ({
 			direction="column"
 			justify="center"
 			alignItems="center"
-			style={{ height: '90vh' }}
+			// style={{ height: '90vh' }}
+			className={formStyle().formFieldBodyDashboard}
 		>
-			<Paper className={formStyle().formContainer} elevation={5}>
-				<h1 className={navStyle().title}>Dashboard</h1>
-				<p className={navStyle().title}>Welcome, {user && user.name}</p>
+			<Paper
+				className={formStyle().formContainer}
+				elevation={12}
+				className={formStyle().formContainerAlt}
+			>
+				<h1 style={{ fontFamily: 'Montserrat' }}>Dashboard</h1>
+				<p style={{ fontFamily: 'Montserrat' }}>Welcome, {user && user.name}</p>
 				{profile && profile !== null ? (
 					<>
 						<DashboardActions />
+						<Experience experience={profile.experience} />
+						<div style={{ marginTop: '4em', marginBottom: '4em' }} />
+						<Education education={profile.education} />
+						<div style={{ marginTop: '4em' }} />
 					</>
 				) : (
 					<>
@@ -42,7 +54,7 @@ const Dashboard = ({
 					</>
 				)}
 			</Paper>
-			<Alert />
+			<DynamicAlert />
 		</Grid>
 	);
 };

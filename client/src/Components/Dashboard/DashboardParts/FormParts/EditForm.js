@@ -61,6 +61,7 @@ const EditForm = ({
 			youtube: loading || !profile.youtube ? '' : profile.youtube,
 			instagram: loading || !profile.instagram ? '' : profile.instagram,
 		});
+		// eslint-disable-next-line
 	}, [loading]);
 
 	const onChange = (e) =>
@@ -71,7 +72,13 @@ const EditForm = ({
 		createProfile(formData, history, true);
 	};
 	return (
-		<Grid container direction="column" justify="center" alignItems="center">
+		<Grid
+			container
+			direction="column"
+			justify="center"
+			alignItems="center"
+			className={formStyle().formFieldBodyEdit}
+		>
 			<Paper className={formStyle().formContainerAlt} elevation={5}>
 				<h2 className={bodyStyle().header_Primary}>
 					Hey <i>{user && user.name}</i>, let's create your Profile

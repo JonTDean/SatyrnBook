@@ -4,8 +4,8 @@ import React from 'react';
 import { formStyle, formInputAlt } from '../../../../../themes/Styles';
 import TextField from '@material-ui/core/TextField';
 
-const JobDescription = ({ description, onChange }) => {
-	console.log('Job Description:', description);
+const Description = ({ description, onChange }) => {
+	// console.log('Description:', description);
 
 	return (
 		<div className={formStyle().formDiv}>
@@ -17,8 +17,8 @@ const JobDescription = ({ description, onChange }) => {
 				rows={2}
 				rowsMax={4}
 				id="description-field"
-				label="Describe yourself"
-				helperText="Please describe your Position."
+				label="Describe this place"
+				helperText="Give a description of your time there."
 				name="description"
 				value={description.toString()}
 				onChange={onChange}
@@ -27,4 +27,4 @@ const JobDescription = ({ description, onChange }) => {
 	);
 };
 
-export default JobDescription;
+export default Description;

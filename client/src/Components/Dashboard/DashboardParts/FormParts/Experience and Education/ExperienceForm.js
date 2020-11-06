@@ -14,13 +14,13 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import {
 	Company,
 	FromDate,
-	JobDescription,
+	Description,
 	JobTitle,
 	Location,
 	ToField,
 } from './Experience/_index';
 
-const ExperienceForm = (props) => {
+const ExperienceForm = ({ addExperience, history }) => {
 	const [formData, setFormData] = useState({
 		company: '',
 		title: '',
@@ -40,13 +40,23 @@ const ExperienceForm = (props) => {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-		console.log(formData);
+		// console.log(formData);
+
+		addExperience(formData, history);
 	};
 
 	return (
-		<Grid container direction="column" justify="center" alignItems="center">
+		<Grid
+			container
+			direction="column"
+			justify="center"
+			alignItems="center"
+			className={formStyle().formFieldBodyEdit}
+		>
 			<Paper className={formStyle().formContainerAlt} elevation={5}>
-				<form onSubmit={onSubmit}>
+				<h1>Add Experience</h1>
+				<h2>Add your previous work Experience!</h2>
+				<form onSubmit={onSubmit} className={formStyle().editForm}>
 					<JobTitle title={title} onChange={onChange} />
 					<Company company={company} onChange={onChange} />
 					<Location location={location} onChange={onChange} />
@@ -60,20 +70,20 @@ const ExperienceForm = (props) => {
 						toDateDisabled={toDateDisabled}
 						toggleDisabled={toggleDisabled}
 					/>
-					<JobDescription description={description} onChange={onChange} />
-					<ButtonGroup style={{ justifyContent: 'center' }}>
+					<Description description={description} onChange={onChange} />
+					<ButtonGroup style={{ marginBottom: '3em', alignItems: 'stretch' }}>
 						{/* Submit Button */}
-						<Button type="submit" className={formStyle().button}>
+						<Button type="submit" className={formStyle().buttonAlt}>
 							Submit
 						</Button>
 
 						{/* Head back to the Dashboard */}
 						<Button
 							component={RouterLink}
-							className={formStyle().button}
+							className={formStyle().buttonAlt}
 							to="/Profile/Dashboard"
 						>
-							Return to Dashboard
+							Return
 						</Button>
 					</ButtonGroup>
 				</form>

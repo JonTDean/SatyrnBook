@@ -4,24 +4,22 @@ import React from 'react';
 import { formStyle, formInputAlt } from '../../../../../themes/Styles';
 import TextField from '@material-ui/core/TextField';
 
-const JobTitle = ({ title, onChange }) => {
-	// console.log('Job Title:', title);
-
+const FieldOfStudy = ({ fieldofstudy, onChange }) => {
 	return (
 		<div className={formStyle().formDiv}>
 			<TextField
 				inputprops={formInputAlt}
 				inputlabelprops={formInputAlt}
-				id="title-field"
-				label="Title"
-				helperText="Please explain your Job Title."
+				id="fieldofstudy-field"
+				label="Field of Study"
+				helperText="What was your field of study?"
 				className={formStyle().textField}
-				name="title"
-				value={title}
+				name="fieldofstudy"
+				value={fieldofstudy}
 				onChange={onChange}
 			/>
 		</div>
 	);
 };
 
-export default JobTitle;
+export default FieldOfStudy;

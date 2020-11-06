@@ -116,6 +116,26 @@ export const formStyle = makeStyles((theme) => ({
 		height: '100vh',
 		overflow: 'hidden',
 	},
+	formFieldBodyDashboard: {
+		backgroundImage: `url(${require('../../Assets/Pictures/pexels-pixabay-73873.jpg')})`,
+		backgroundRepeat: 'no-repeat',
+		backgroundPosition: 'center center',
+		backgroundAttachment: 'fixed',
+		display: 'static',
+		backgroundSize: 'cover',
+		height: '100vh',
+		overflow: 'hidden',
+	},
+	formFieldBodyEdit: {
+		backgroundImage: `url(${require('../../Assets/Pictures/pexels-pixabay-33109.jpg')})`,
+		backgroundRepeat: 'no-repeat',
+		backgroundPosition: 'center center',
+		backgroundAttachment: 'fixed',
+		display: 'static',
+		backgroundSize: 'cover',
+		height: '100vh',
+		overflow: 'hidden',
+	},
 	formContainer: {
 		textAlign: 'center',
 		maxWidth: '75%',
@@ -125,10 +145,13 @@ export const formStyle = makeStyles((theme) => ({
 	formContainerAlt: {
 		maxWidth: '75%',
 		minWidth: '25%',
+		maxHeight: '75%',
+		minHeight: '25%',
 		padding: '3em',
 		marginTop: '6em',
 		paddingBottom: '1em',
 		marginBottom: '1em',
+		overflowY: 'scroll',
 	},
 	form: {
 		// postion: 'absolute',
@@ -139,6 +162,12 @@ export const formStyle = makeStyles((theme) => ({
 		minWidth: '25%',
 		paddingLeft: '3em',
 		paddingRight: '3em',
+	},
+	editForm: {
+		width: '100%',
+		display: 'inline-block',
+		justifyContent: 'center',
+		textAlign: 'center',
 	},
 	formDiv: {
 		maxHeight: '100%',
@@ -217,5 +246,12 @@ export const barCollapserStyle = makeStyles((theme) => ({
 		position: 'relative',
 		width: '100%',
 		background: 'transparent',
+	},
+}));
+
+export const tableStyle = makeStyles((theme) => ({
+	main: {
+		background: mainTheme.palette.secondary.dark,
+		color: mainTheme.palette.secondary.main,
 	},
 }));
